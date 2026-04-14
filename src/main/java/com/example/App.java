@@ -1,4 +1,3 @@
-```java id="yw9r9x"
 package com.example;
 
 import org.openqa.selenium.By;
@@ -90,4 +89,3 @@ public class App {
         driver.quit();
     }
 }
-```
