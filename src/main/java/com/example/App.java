@@ -1,3 +1,4 @@
+```java id="yw9r9x"
 package com.example;
 
 import org.openqa.selenium.By;
@@ -17,11 +18,15 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized"); // optional
+
+        // Jenkins / Linux Headless Safe Options
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920,1080");
 
         WebDriver driver = new ChromeDriver(options);
-
-        driver.manage().window().setSize(new org.openqa.selenium.Dimension(1920, 1080));
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
@@ -80,8 +85,9 @@ public class App {
 
         System.out.println("Practice Test Automation login successful");
 
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
         driver.quit();
     }
 }
+```
